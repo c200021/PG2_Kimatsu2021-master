@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common::common-header(アカウント一覧)">
+</head>
+<body>
+    <header>
+        <h1 class="m-3">アカウント一覧</h1>
+    </header>
+		<hr>
+
+	<main>
+        <p class="text-center text-success" th:if="${message}" th:text="${message}">
+            メッセージ
+        </p>
+
+        <p class="text-center m-3">
+            <input type="button"  class="btn btn-primary" onclick="location.href='/new';" value="新規アカウント作成" />
+        </p>
+
+		<table class="table">
+			<thead>
+				<th>ID</th>
+				<th>名前</th>
+				<th>クラス</th>
+				<th>電話</th>
+				<th>住所</th>
+				<th>操作</th>
+			</thead>
+
+			<tbody>
+				<tr th:each="account : ${listAccounts}" th:object="${account}">
+					<td th:text="*{id}"></td>
+					<td th:text="*{name}"></td>
+					<td th:text="*{className}"></td>
+					<td th:text="*{tel}"></td>
+					<td th:text="*{address}"></td>
+					<td>
+                        <input type="button" th:onclick="'location.href=\''+@{/edit/{id}(id=*{id})}+'\';'" value="編集" class="btn btn-secondary">&nbsp;
+                        <input type="button" th:onclick="'location.href=\''+@{/delete/{id}(id=*{id})}+'\';'" value="削除" class="btn btn-danger">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p th:if="${listAccounts.size() == 0}">データは存在しません。</p>
+		
+		<div class="text-center">
+			<img src="bird.jpg" class="rounded mt-5 img-fluid" alt="..." >
+		</div>
+
+		</main>
+		<footer th:replace="fragments/common::common-footer"></footer>
+</body>
+</html>

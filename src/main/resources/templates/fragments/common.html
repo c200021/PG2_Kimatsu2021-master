@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="common-header(title)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/webjars/bootstrap/5.0.1/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title th:text="${title}">タイトル</title>
+</head>
+
+<body>
+    <h1>共通ヘッダー・フッター</h1>
+    <footer th:fragment="common-footer">
+        <a th:href="@{/}">HOME</a>
+        <script th:src="@{/webjars/bootstrap/5.0.1/js/bootstrap.bundle.min.js}"></script>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header h1 {
+    text-align: center;
+}
+
+main {
+    margin: 0 10%;
+}
+
+main table {
+    margin: 0 auto;
+    border-collapse:  collapse;
+    border-top: solid #ccc 3px;
+    border-left: solid #bbb 3px;
+    border-bottom: solid #999 3px;
+    border-right: solid #aaa 3px;
+}
+
+main table th,
+main table td {
+    padding: 8px 0.75em;
+}
+
+main table input[type="text"] {
+    font-size: 1em;
+    width: 20em;
+}
+
+
+main table input[type="text"][readonly="readonly"] {
+    color: #888;
+}
+
+main table thead tr {
+    background-color: rgb(0, 0, 92);
+    color: white;
+    font-size: 120%;
+}
+
+main table tbody tr:nth-child(2n) {
+    background-color: rgb(242, 248, 253);
+}
+
+main table tbody tr:nth-child(2n+1) {
+    background-color: rgb(162, 253, 253);
+}
+
+footer {
+    margin-top: 3rem;
+    padding: 0.2rem 0;
+    text-align: center;
+    background-color:rgb(24, 24, 24);
+    color: white;
+}
+
+footer a:link,
+footer a:visited,
+footer a:active,
+footer a:hover {
+    color: white;
+}

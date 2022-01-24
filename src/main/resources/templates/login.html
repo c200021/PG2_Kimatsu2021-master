@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common::common-header(ログイン画面)">
+</head>
+    <body>
+
+        <header>
+            <h1 class="m-3">ログイン画面</h1>
+        </header>
+            <hr>
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 24rem;">
+            <div class="card-body">
+                <p th:if="${param.error}" class="text-center text-danger">
+                    IDまたはパスワードが間違っています。
+                </p>
+
+                <p th:if="${param.logout}" class="text-center text-danger">
+                    ログアウトしました。
+                </p>
+
+                <form th:action="@{/login}" method="post">
+                    <div class="form-group">
+                        <label class="form-label">ユーザー名</label>
+                            <input type="text" name="username" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">パスワード</label>
+                        <input type="password" name="password" class="form-control"/>
+                    </div>
+                    <div class="m-3 text-center">
+                        <input type="submit" value="ログイン" class="btn btn-primary"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+        <footer th:replace="fragments/common::common-footer"></footer>
+    </body>
+</html>

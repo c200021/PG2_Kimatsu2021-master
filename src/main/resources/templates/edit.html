@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head th:replace="fragments/common::common-header(編集画面)">
+</head>
+<body>
+    <header>
+        <h1 class="m-3">編集画面</h1>
+    </header>
+		<hr>
+
+	<main>
+		<div class="container">
+			<div class="row justify-content-end m-3">
+				<div class="col-4">
+        	<p class="text-center">アカウントを編集します。</p>
+				</div>
+				<div class="col-4">
+					<form th:action="@{/logout}" method="post">
+						<input type="submit" class="btn btn-secondary btn-sm" value="ログアウト">
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<form action="#" th:action="@{/edit}" th:object="${account}" method="post">
+			<table>
+				<tr>
+					<td>ID:<input type="hidden" th:field="*{id}"></td>
+					<td th:text="*{id}"></td>
+				</tr>
+
+				<tr th:if="${#fields.hasErrors('name')}">
+					<td th:errors="*{name}" class="text-center text-danger" colspan="2"></td>
+				</tr>
+				<tr>
+					<td>名前:</td>
+					<td><input class="form-control" type="text" th:field="*{name}" th:errorclass="is-invalid"></td>
+				</tr>
+
+				<tr th:if="${#fields.hasErrors('className')}">
+					<td th:errors="*{className}" class="text-center text-danger" colspan="2"></td>
+				</tr>
+				<tr>
+					<td>クラス:</td>
+					<td><input class="form-control" type="text" th:field="*{className}" th:errorclass="is-invalid"></td>
+				</tr>
+
+				<tr th:if="${#fields.hasErrors('tel')}">
+					<td th:errors="*{tel}" class="text-center text-danger" colspan="2"></td>
+				</tr>
+				<tr>
+					<td>電話番号:</td>
+					<td><input class="form-control" type="text" th:field="*{tel}" th:errorclass="is-invalid"></td>
+				</tr>
+
+				<tr th:if="${#fields.hasErrors('address')}">
+					<td th:errors="*{address}" class="text-center text-danger" colspan="2"></td>
+				</tr>
+				<tr>
+					<td>住所:</td>
+					<td><input class="form-control" type="text" th:field="*{address}" th:errorclass="is-invalid"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2" align="center">
+                        <button type="submit" class="btn btn-secondary">保存</button>
+                    </td>
+				</tr>
+			</table>
+            <!-- <ul th:if="${#fields.hasErrors()}">
+                <li th:if="${#fields.hasErrors('name')}"><strong>名前</strong>：<span th:errors="*{name}"></span></li>
+                <li th:if="${#fields.hasErrors('className')}"><strong>クラス</strong>：<span th:errors="*{className}"></span></li>
+            </ul> -->
+		</form>
+
+	</main>
+
+	<footer th:replace="fragments/common::common-footer"></footer>
+
+</body>
+</html>
