@@ -1,6 +1,5 @@
 package jp.ac.ccmc._2x.kimatsu2021;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,8 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
   
-  @Autowired
-  private AccountService service;
 
   @Override
   public void configure(WebSecurity web) throws Exception {
